@@ -16,7 +16,7 @@ public:
 	~Pacman(void);
 
 	bool Update(float aTime);
-	bool Draw();
+	bool Draw(Drawer* aDrawer);
 
 private:
 	Pacman(Drawer* aDrawer);

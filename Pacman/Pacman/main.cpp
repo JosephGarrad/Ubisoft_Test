@@ -41,20 +41,21 @@ int main(int argc, char **argv)
 	{
 		float currentFrame = (float) SDL_GetTicks() * 0.001f;
 		float elapsedTime = currentFrame - lastFrame;
-
+		
 		if (!pacman->Update(elapsedTime))
 			break;
-
+		
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
-		pacman->Draw();
+		pacman->Draw(drawer);
 		
 		lastFrame = currentFrame;		
 
 		SDL_RenderPresent(renderer);
 		SDL_Delay(1);
 	}
+
 
 	delete pacman;
 	delete drawer;

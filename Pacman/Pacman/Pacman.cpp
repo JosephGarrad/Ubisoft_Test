@@ -44,7 +44,7 @@ Pacman::~Pacman(void)
 bool Pacman::Init()
 {
 	myWorld->Init();
-
+	
 	return true;
 }
 
@@ -146,32 +146,32 @@ bool Pacman::CheckEndGameCondition()
 	return false;
 }
 
-bool Pacman::Draw()
+bool Pacman::Draw(Drawer* aDrawer)
 {
-	myWorld->Draw(myDrawer);
-	myAvatar->Draw(myDrawer);
-	myGhost->Draw(myDrawer);
+	myWorld->Draw(aDrawer);
+	myAvatar->Draw(aDrawer);
+	myGhost->Draw(aDrawer);
 
 	std::string scoreString;
 	std::stringstream scoreStream;
 	scoreStream << myScore;
 	scoreString = scoreStream.str();
-	myDrawer->DrawText("Score", "freefont-ttf\\sfd\\FreeMono.ttf", 20, 50);
-	myDrawer->DrawText(scoreString.c_str(), "freefont-ttf\\sfd\\FreeMono.ttf", 90, 50);
+	aDrawer->DrawText("Score", "freefont-ttf\\sfd\\FreeMono.ttf", 20, 50);
+	aDrawer->DrawText(scoreString.c_str(), "freefont-ttf\\sfd\\FreeMono.ttf", 90, 50);
 
 	std::string livesString;
 	std::stringstream liveStream;
 	liveStream << myLives;
 	livesString = liveStream.str();
-	myDrawer->DrawText("Lives", "freefont-ttf\\sfd\\FreeMono.ttf", 20, 80);
-	myDrawer->DrawText(livesString.c_str(), "freefont-ttf\\sfd\\FreeMono.ttf", 90, 80);
+	aDrawer->DrawText("Lives", "freefont-ttf\\sfd\\FreeMono.ttf", 20, 80);
+	aDrawer->DrawText(livesString.c_str(), "freefont-ttf\\sfd\\FreeMono.ttf", 90, 80);
 
-	myDrawer->DrawText("FPS", "freefont-ttf\\sfd\\FreeMono.ttf", 880, 50);
+	aDrawer->DrawText("FPS", "freefont-ttf\\sfd\\FreeMono.ttf", 880, 50);
 	std::string fpsString;
 	std::stringstream fpsStream;
 	fpsStream << myFps;
 	fpsString = fpsStream.str();
-	myDrawer->DrawText(fpsString.c_str(), "freefont-ttf\\sfd\\FreeMono.ttf", 930, 50);
+	aDrawer->DrawText(fpsString.c_str(), "freefont-ttf\\sfd\\FreeMono.ttf", 930, 50);
 
 	return true;
 }
