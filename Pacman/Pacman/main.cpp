@@ -8,6 +8,7 @@
 
 int main(int argc, char **argv)
 {
+
 	/* initialize SDL */
 	if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
@@ -35,6 +36,16 @@ int main(int argc, char **argv)
 	Drawer* drawer = Drawer::Create(window, renderer);
 	Pacman* pacman = Pacman::Create(drawer);
 
+	
+		
+
+		
+
+		
+		
+
+
+
 	float lastFrame = (float) SDL_GetTicks() * 0.001f;
 	SDL_Event event;
 	while (SDL_PollEvent(&event) >= 0)
@@ -47,12 +58,13 @@ int main(int argc, char **argv)
 		
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
-
+		
 		pacman->Draw(drawer);
 		
 		lastFrame = currentFrame;		
 
 		SDL_RenderPresent(renderer);
+		
 		SDL_Delay(1);
 	}
 
@@ -63,6 +75,7 @@ int main(int argc, char **argv)
 	TTF_Quit();
 	IMG_Quit();
 	SDL_Quit( );
+	
 
 	return 0;
 }

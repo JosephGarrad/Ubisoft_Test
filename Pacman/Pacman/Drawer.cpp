@@ -58,6 +58,7 @@ void Drawer::Draw(const char* anImage, int aCellX, int aCellY)
 	SDL_RenderCopy(myRenderer, optimizedSurface, &sizeRect, &posRect);	
 	SDL_DestroyTexture(optimizedSurface); // destroyed this surface as the program was creating a new texture but never destroying or freeing the previous one
 	SDL_FreeSurface(surface); // freeing the surface before making it again to save space and stop duplicates
+
 }
 
 void Drawer::DrawText(const char* aText, const char* aFontFile, int aX, int aY)
