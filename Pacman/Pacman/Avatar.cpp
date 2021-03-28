@@ -3,7 +3,11 @@
 Avatar::Avatar(const Vector2f& aPosition)
 : MovableGameEntity(aPosition, "open_32.png")
 {
-
+	Left = true;
+	Right = false;
+	Down = false;
+	Up = false;
+	
 }
 
 Avatar::~Avatar(void)
@@ -35,4 +39,8 @@ void Avatar::Update(float aTime)
 void Avatar::ChangeSprite(const char* anImage)
 {
 	myImage = anImage;
+}
+void Avatar::Draw(Drawer* aDrawer)
+{
+
 }

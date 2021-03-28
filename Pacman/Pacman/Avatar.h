@@ -12,6 +12,14 @@ public:
 	void ChangeSprite(const char* anImage); // chnaging the direcion of the sprite
 	void Update(float aTime);
 
+
+	bool Up;
+	bool Left;
+	bool Right;
+	bool Down;
+
+	void Draw(Drawer* aDrawer);
+
 private:
 
 
