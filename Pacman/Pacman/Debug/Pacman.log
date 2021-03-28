@@ -1,7 +1,7 @@
-﻿  Avatar.cpp
+﻿  Ghost.cpp
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(21,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(21,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(72,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(72,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Pacman.cpp
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Pacman.cpp(158,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data

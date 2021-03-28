@@ -25,9 +25,9 @@ void Ghost::Die(World* aWorld)
 
 void Ghost::Update(float aTime, World* aWorld)
 {
-	float speed = 30.f;
-	int nextTileX = GetCurrentTileX() + myDesiredMovementX;
-	int nextTileY = GetCurrentTileY() + myDesiredMovementY;
+	 speed = 30.f; //moved decleration into .h
+	nextTileX = GetCurrentTileX() + myDesiredMovementX; // both now declared in .H
+	nextTileY = GetCurrentTileY() + myDesiredMovementY;
 
 	if (myIsDeadFlag)
 		speed = 120.f;
@@ -68,11 +68,11 @@ void Ghost::Update(float aTime, World* aWorld)
 		}
 	}
 
-	int tileSize = 22;
+	tileSize = 22; // now declared in the .H
 	Vector2f destination(myNextTileX * tileSize, myNextTileY * tileSize);
 	Vector2f direction = destination - myPosition;
 
-	float distanceToMove = aTime * speed;
+	distanceToMove = aTime * speed; // now declared in the .H
 
 	if (distanceToMove > direction.Length())
 	{
