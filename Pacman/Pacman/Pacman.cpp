@@ -113,13 +113,39 @@ bool Pacman::UpdateInput()
 	const Uint8 *keystate = SDL_GetKeyboardState(NULL);
 
 	if (keystate[SDL_SCANCODE_UP])
+	{
 		myNextMovement = Vector2f(0.f, -1.f);
+		myAvatar->Up = true;
+		myAvatar->Down = false;
+		myAvatar->Right = false;
+		myAvatar->Left = false;
+	}
+
 	else if (keystate[SDL_SCANCODE_DOWN])
+	{
 		myNextMovement = Vector2f(0.f, 1.f);
+		myAvatar->Down = true;
+		myAvatar->Up = false;
+		myAvatar->Left = false;
+		myAvatar->Right = false;
+	}
 	else if (keystate[SDL_SCANCODE_RIGHT])
+	{
 		myNextMovement = Vector2f(1.f, 0.f);
+		myAvatar->Right = true;
+		myAvatar->Down = false;
+		myAvatar->Up = false;
+		myAvatar->Left = false;
+	}
 	else if (keystate[SDL_SCANCODE_LEFT])
+	{
 		myNextMovement = Vector2f(-1.f, 0.f);
+		myAvatar->Left = true;
+		myAvatar->Down = false;
+		myAvatar->Right = false;
+		myAvatar->Up = false;
+	}
+
 
 	if (keystate[SDL_SCANCODE_ESCAPE])
 		return false;
