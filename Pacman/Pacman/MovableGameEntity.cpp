@@ -28,3 +28,4 @@ void MovableGameEntity::SetNextTile(int anX, int anY)
 	myNextTileX = anX;
 	myNextTileY = anY;
 }
+

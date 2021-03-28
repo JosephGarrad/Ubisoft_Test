@@ -146,6 +146,7 @@ bool Pacman::CheckEndGameCondition()
 	return false;
 }
 
+
 bool Pacman::Draw(Drawer* aDrawer)
 {
 	myWorld->Draw(aDrawer);

@@ -9,7 +9,7 @@ class Avatar : public MovableGameEntity
 public:
 	Avatar(const Vector2f& aPosition);
 	~Avatar(void);
-
+	void ChangeSprite(const char* anImage); // chnaging the direcion of the sprite
 	void Update(float aTime);
 
 private:

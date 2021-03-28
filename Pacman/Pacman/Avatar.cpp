@@ -31,3 +31,8 @@ void Avatar::Update(float aTime)
 		myPosition += direction * distanceToMove;
 	}
 }
+
+void Avatar::ChangeSprite(const char* anImage)
+{
+	myImage = anImage;
+}

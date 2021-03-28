@@ -24,6 +24,7 @@ private:
 	bool UpdateInput();
 	void MoveAvatar();
 	bool CheckEndGameCondition();
+	//void ChangeSprite();
 
 	Drawer* myDrawer;
 
