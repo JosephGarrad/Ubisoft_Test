@@ -21,8 +21,8 @@ public:
 	void Draw(Drawer* aDrawer);
 
 private:
-
-
+	int tileSize; // moved from CPP
+	float distanceToMove; // moved from CPP
 };
 
 #endif //AVATAR_H

@@ -8,7 +8,7 @@
 
 int main(int argc, char **argv)
 {
-
+	bool quit = false;
 	/* initialize SDL */
 	if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
@@ -36,20 +36,14 @@ int main(int argc, char **argv)
 	Drawer* drawer = Drawer::Create(window, renderer);
 	Pacman* pacman = Pacman::Create(drawer);
 
-	
-		
-
-		
-
-		
-		
-
-
-
 	float lastFrame = (float) SDL_GetTicks() * 0.001f;
 	SDL_Event event;
-	while (SDL_PollEvent(&event) >= 0)
+	while (SDL_PollEvent(&event) >= 0 && !quit)
 	{
+		if (event.type == SDL_QUIT)
+		{
+			quit = true;
+		}
 		float currentFrame = (float) SDL_GetTicks() * 0.001f;
 		float elapsedTime = currentFrame - lastFrame;
 		
@@ -67,6 +61,7 @@ int main(int argc, char **argv)
 		
 		SDL_Delay(1);
 	}
+	
 
 
 	delete pacman;

@@ -64,12 +64,14 @@ bool World::InitDots()
 				{
 					Dot* dot = new Dot(Vector2f(i*22, lineIndex*22));
 					myDots.push_back(dot);
+					
 				}
 			}
 
 			lineIndex++;
 		}
 		myfile.close();
+		
 	}
 
 	return true;
@@ -110,6 +112,7 @@ void World::Draw(Drawer* aDrawer)
 	{
 		Dot* dot = *list_iter;
 		dot->Draw(aDrawer);
+		
 	}
 
 	for(std::list<BigDot*>::iterator list_iter = myBigDots.begin(); list_iter != myBigDots.end(); list_iter++)

@@ -16,12 +16,12 @@ Avatar::~Avatar(void)
 
 void Avatar::Update(float aTime)
 {
-	int tileSize = 22;
+	tileSize = 22; // now declared in the .H
 
 	Vector2f destination(myNextTileX * tileSize, myNextTileY * tileSize);
 	Vector2f direction = destination - myPosition;
 
-	float distanceToMove = aTime * 30.f;
+	distanceToMove = aTime * 30.f; // now declared in the .H
 
 	if (distanceToMove > direction.Length())
 	{

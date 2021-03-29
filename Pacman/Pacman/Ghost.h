@@ -25,15 +25,18 @@ public:
 	void Draw(Drawer* aDrawer);
 
 protected:
-	float speed; // moved from CPP
+	
 	int myDesiredMovementX;
 	int myDesiredMovementY;
+	
+
+	std::list<PathmapTile*> myPath;
+private:
+	float speed; // moved from CPP
 	int nextTileY; //Moved from CPP
 	int nextTileX; // moved from CPP
 	int tileSize; // moved from CPP
 	float distanceToMove; // moved from CPP
-
-	std::list<PathmapTile*> myPath;
 
 };
 
