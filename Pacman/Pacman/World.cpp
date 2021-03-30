@@ -113,6 +113,7 @@ void World::Draw(Drawer* aDrawer)
 		Dot* dot = *list_iter;
 		dot->Draw(aDrawer);
 		
+		
 	}
 
 	for(std::list<BigDot*>::iterator list_iter = myBigDots.begin(); list_iter != myBigDots.end(); list_iter++)

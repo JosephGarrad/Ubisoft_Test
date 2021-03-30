@@ -3,6 +3,8 @@
 Avatar::Avatar(const Vector2f& aPosition)
 : MovableGameEntity(aPosition, "open_32.png")
 {
+	
+
 	Left = true;
 	Right = false;
 	Down = false;

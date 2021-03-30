@@ -9,6 +9,8 @@ class Dot : public StaticGameEntity
 public:
 	Dot(Vector2f aPosition);
 	~Dot(void);
+
+	
 };
 
 #endif // DOT_H

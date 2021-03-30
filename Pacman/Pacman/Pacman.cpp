@@ -39,6 +39,9 @@ Pacman::Pacman(Drawer* aDrawer)
 
 Pacman::~Pacman(void)
 {
+	delete myAvatar; // deleting these for memory managment
+	delete myGhost;
+	delete myWorld;
 }
 
 bool Pacman::Init()

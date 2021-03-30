@@ -17,9 +17,9 @@ public:
 	bool Left;
 	bool Right;
 	bool Down;
-
+	
 	void Draw(Drawer* aDrawer);
-
+	
 private:
 	int tileSize; // moved from CPP
 	float distanceToMove; // moved from CPP
