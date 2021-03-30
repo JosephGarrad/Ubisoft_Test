@@ -7,7 +7,7 @@
 class Dot : public StaticGameEntity
 {
 public:
-	Dot(Vector2f aPosition);
+	Dot(SDL_Renderer* myrenderer, Vector2f aPosition);
 	~Dot(void);
 
 	

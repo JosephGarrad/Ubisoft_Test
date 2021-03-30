@@ -32,8 +32,8 @@ Pacman::Pacman(Drawer* aDrawer)
 , myLives(3)
 , myGhostGhostCounter(0.f)
 {
-	myAvatar = new Avatar(Vector2f(13*22,22*22));
-	myGhost = new Ghost(Vector2f(13*22,13*22));
+	myAvatar = new Avatar(myDrawer->returnRenderer(), Vector2f(13*22,22*22));
+	myGhost = new Ghost(myDrawer->returnRenderer(), Vector2f(13*22,13*22));
 	myWorld = new World();
 }
 
@@ -46,7 +46,7 @@ Pacman::~Pacman(void)
 
 bool Pacman::Init()
 {
-	myWorld->Init();
+	myWorld->Init(myDrawer->returnRenderer());
 	
 	return true;
 }

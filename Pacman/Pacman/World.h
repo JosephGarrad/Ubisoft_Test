@@ -3,7 +3,12 @@
 
 #include <list>
 #include "Vector2f.h"
+#include "SDL.h"
+#include "SDL_image.h"
 
+struct SDL_Window;
+struct SDL_Renderer;
+struct SDL_Surface;
 class Drawer;
 class PathmapTile;
 class Dot;
@@ -16,7 +21,7 @@ public:
 	World(void);
 	~World(void);
 
-	void Init();
+	void Init(SDL_Renderer* myrenderer);
 
 	void Draw(Drawer* aDrawer);
 	bool TileIsValid(int anX, int anY);
@@ -28,7 +33,9 @@ public:
 	void Update();
 
 	void GetPath(int aFromX, int aFromY, int aToX, int aToY, std::list<PathmapTile*>& aList);
-
+	SDL_Texture* optimizedSurface;
+	SDL_Rect sizeRect;
+	SDL_Rect posRect;
 private:
 
 	PathmapTile* GetTile(int aFromX, int aFromY);
@@ -36,9 +43,9 @@ private:
 	bool ListDoesNotContain(PathmapTile* aFromTile, std::list<PathmapTile*>& aList);
 
 
-	bool InitPathmap();
-	bool InitDots();
-	bool InitBigDots();
+	bool InitPathmap(SDL_Renderer* myrenderer);
+	bool InitDots(SDL_Renderer* myrenderer);
+	bool InitBigDots(SDL_Renderer* myrenderer);
 
 	std::list<PathmapTile*> myPathmapTiles;
 	std::list<Dot*> myDots;

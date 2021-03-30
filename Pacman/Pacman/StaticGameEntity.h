@@ -7,7 +7,7 @@
 class StaticGameEntity : public GameEntity
 {
 public:
-	StaticGameEntity(Vector2f aPosition, const char* anImage);
+	StaticGameEntity(SDL_Renderer* myrenderer, Vector2f aPosition, const char* anImage);
 	~StaticGameEntity(void);
 };
 

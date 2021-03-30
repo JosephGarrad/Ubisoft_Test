@@ -1,12 +1,7 @@
-﻿  Pacman.cpp
+﻿  Ghost.cpp
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Pacman.cpp(161,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Pacman.cpp(162,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  World.cpp
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(65,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(65,35): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(94,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(94,41): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Generating Code...
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(72,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(72,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(88,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(88,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Pacman.vcxproj -> F:\PacManUBI\Ubisoft_Test\Pacman\Debug\Pacman.exe

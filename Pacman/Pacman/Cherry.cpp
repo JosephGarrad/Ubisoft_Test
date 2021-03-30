@@ -1,7 +1,7 @@
 #include "Cherry.h"
 
-Cherry::Cherry(Vector2f aPosition)
-: StaticGameEntity(aPosition, "dot.png")
+Cherry::Cherry(SDL_Renderer* myrenderer, Vector2f aPosition)
+: StaticGameEntity(myrenderer ,aPosition, "dot.png")
 {
 }
 

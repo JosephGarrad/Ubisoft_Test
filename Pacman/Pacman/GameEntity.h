@@ -2,13 +2,18 @@
 #define GAMEENTITY_H
 
 #include "Vector2f.h"
+#include "SDL.h"
+#include "SDL_image.h"
 
+struct SDL_Window;
+struct SDL_Renderer;
+struct SDL_Surface;
 class Drawer;
 
 class GameEntity
 {
 public:
-	GameEntity(const Vector2f& aPosition, const char* anImage);
+	GameEntity(SDL_Renderer* myrenderer,const Vector2f& aPosition, const char* anImage);
 	~GameEntity(void);
 
 	Vector2f GetPosition() const { return myPosition; }
@@ -17,9 +22,13 @@ public:
 	bool Intersect(GameEntity* aGameEntity);
 	virtual void Draw(Drawer* aDrawer);
 
+	void moveSprite(int cellX, int cellY);
+
 	void MarkForDelete() { myIdMarkedForDeleteFlag = true; }
 	bool IsMarkedForDelete() const { return myIdMarkedForDeleteFlag; }
-
+	SDL_Texture* optimizedSurface;
+	SDL_Rect sizeRect;
+	SDL_Rect posRect;
 protected:
 
 	bool myIdMarkedForDeleteFlag;

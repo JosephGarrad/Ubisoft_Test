@@ -1,6 +1,5 @@
 #include "Drawer.h"
-#include "SDL.h"
-#include "SDL_image.h"
+
 #include "SDL_ttf.h"
 
 Drawer* Drawer::Create(SDL_Window* aWindow, SDL_Renderer* aRenderer)
@@ -34,30 +33,9 @@ bool Drawer::Init()
 	return true;
 }
 
-void Drawer::Draw(const char* anImage, int aCellX, int aCellY)
+void Drawer::Draw(SDL_Texture* Texture, SDL_Rect SizeRect, SDL_Rect PosRect)
 {
-	SDL_Surface* surface = IMG_Load( anImage ) ;
-
-	if (!surface)
-		return;
-
-	SDL_Texture* optimizedSurface = SDL_CreateTextureFromSurface(myRenderer, surface);
-
-    SDL_Rect sizeRect;
-    sizeRect.x = 0 ;
-    sizeRect.y = 0 ;
-    sizeRect.w = surface->w ;
-    sizeRect.h = surface->h ;
-
-    SDL_Rect posRect ;
-    posRect.x = aCellX;
-    posRect.y = aCellY;
-	posRect.w = sizeRect.w;
-	posRect.h = sizeRect.h;
-
-	SDL_RenderCopy(myRenderer, optimizedSurface, &sizeRect, &posRect);	
-	SDL_DestroyTexture(optimizedSurface); // destroyed this surface as the program was creating a new texture but never destroying or freeing the previous one
-	SDL_FreeSurface(surface); // freeing the surface before making it again to save space and stop duplicates
+	SDL_RenderCopy(myRenderer, Texture, &SizeRect, &PosRect);
 
 }
 
@@ -86,4 +64,8 @@ void Drawer::DrawText(const char* aText, const char* aFontFile, int aX, int aY)
 	SDL_DestroyTexture(optimizedSurface);
 	SDL_FreeSurface(surface);
 	TTF_CloseFont(font);
+}
+SDL_Renderer* Drawer::returnRenderer()
+{
+	return myRenderer;
 }

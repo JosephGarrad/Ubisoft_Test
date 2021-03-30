@@ -10,7 +10,7 @@ class PathmapTile;
 class Ghost : public MovableGameEntity
 {
 public:
-	Ghost(const Vector2f& aPosition);
+	Ghost(SDL_Renderer* myrenderer, const Vector2f& aPosition);
 	~Ghost(void);
 
 	void Update(float aTime, World* aWorld);
@@ -22,7 +22,7 @@ public:
 
 	void Die(World* aWorld);
 
-	void Draw(Drawer* aDrawer);
+	//void Draw(Drawer* aDrawer);
 
 protected:
 	

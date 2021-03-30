@@ -7,7 +7,7 @@
 class Avatar : public MovableGameEntity
 {
 public:
-	Avatar(const Vector2f& aPosition);
+	Avatar(SDL_Renderer*,const Vector2f& aPosition);
 	~Avatar(void);
 	void ChangeSprite(const char* anImage); // chnaging the direcion of the sprite
 	void Update(float aTime);
@@ -18,7 +18,7 @@ public:
 	bool Right;
 	bool Down;
 	
-	void Draw(Drawer* aDrawer);
+	//void Draw(Drawer* aDrawer);
 	
 private:
 	int tileSize; // moved from CPP

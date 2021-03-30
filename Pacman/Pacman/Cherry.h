@@ -7,7 +7,7 @@
 class Cherry : public StaticGameEntity
 {
 public:
-	Cherry(Vector2f aPosition);
+	Cherry(SDL_Renderer* myrenderer, Vector2f aPosition);
 	~Cherry(void);
 };
 

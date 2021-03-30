@@ -7,7 +7,7 @@
 class MovableGameEntity : public GameEntity
 {
 public:
-	MovableGameEntity(const Vector2f& aPosition, const char* anImage);
+	MovableGameEntity(SDL_Renderer*, const Vector2f& aPosition, const char* anImage);
 	~MovableGameEntity(void);
 
 	void SetNextTile(int anX, int anY);

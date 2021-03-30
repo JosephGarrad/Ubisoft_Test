@@ -11,20 +11,44 @@
 
 World::World(void)
 {
+
 }
 
 World::~World(void)
 {
 }
 
-void World::Init()
+void World::Init(SDL_Renderer* myrenderer)
 {
-	InitPathmap();
-	InitDots();
-	InitBigDots();
+	SDL_Surface* surface = IMG_Load("playfield.png");
+
+	if (!surface)
+		return;
+
+	optimizedSurface = SDL_CreateTextureFromSurface(myrenderer, surface);
+
+
+	sizeRect.x = 0;
+	sizeRect.y = 0;
+	sizeRect.w = surface->w;
+	sizeRect.h = surface->h;
+
+
+	posRect.x = 0;
+	posRect.y = 0;
+	posRect.w = sizeRect.w;
+	posRect.h = sizeRect.h;
+
+
+	//SDL_DestroyTexture(optimizedSurface); // destroyed this surface as the program was creating a new texture but never destroying or freeing the previous one
+	SDL_FreeSurface(surface); // freeing the surface before making it again to save space and stop duplicates
+
+	InitPathmap(myrenderer);
+	InitDots(myrenderer);
+	InitBigDots(myrenderer);
 }
 
-bool World::InitPathmap()
+bool World::InitPathmap(SDL_Renderer* myrenderer)
 {
 	std::string line;
 	std::ifstream myfile ("map.txt");
@@ -48,7 +72,7 @@ bool World::InitPathmap()
 	return true;
 }
 
-bool World::InitDots()
+bool World::InitDots(SDL_Renderer* myrenderer)
 {
 	std::string line;
 	std::ifstream myfile ("map.txt");
@@ -62,7 +86,7 @@ bool World::InitDots()
 			{
 				if (line[i] == '.')
 				{
-					Dot* dot = new Dot(Vector2f(i*22, lineIndex*22));
+					Dot* dot = new Dot(myrenderer, Vector2f(i*22, lineIndex*22));
 					myDots.push_back(dot);
 					
 				}
@@ -77,7 +101,7 @@ bool World::InitDots()
 	return true;
 }
 
-bool World::InitBigDots()
+bool World::InitBigDots(SDL_Renderer* myrenderer)
 {
 	std::string line;
 	std::ifstream myfile ("map.txt");
@@ -91,7 +115,7 @@ bool World::InitBigDots()
 			{
 				if (line[i] == 'o')
 				{
-					BigDot* dot = new BigDot(Vector2f(i*22, lineIndex*22));
+					BigDot* dot = new BigDot(myrenderer, Vector2f(i*22, lineIndex*22));
 					myBigDots.push_back(dot);
 				}
 			}
@@ -106,7 +130,7 @@ bool World::InitBigDots()
 
 void World::Draw(Drawer* aDrawer)
 {
-	aDrawer->Draw("playfield.png");
+	aDrawer->Draw(optimizedSurface,sizeRect,posRect);
 
 	for(std::list<Dot*>::iterator list_iter = myDots.begin(); list_iter != myDots.end(); list_iter++)
 	{
