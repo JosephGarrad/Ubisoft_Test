@@ -23,7 +23,7 @@ void Ghost::Die(World* aWorld)
 	aWorld->GetPath(myCurrentTileX, myCurrentTileY, 13, 13, myPath);
 }
 
-void Ghost::Update(float aTime, World* aWorld)
+void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer)
 {
 	 speed = 30.f; //moved decleration into .h
 	nextTileX = GetCurrentTileX() + myDesiredMovementX; // both now declared in .H
@@ -85,6 +85,9 @@ void Ghost::Update(float aTime, World* aWorld)
 		direction.Normalize();
 		myPosition += direction * distanceToMove;
 	}
+	
+	
+
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 }
 
@@ -93,6 +96,18 @@ void Ghost::SetImage(const char* anImage)
 	myImage = anImage;
 }
 
+void Ghost::GhostStates(SDL_Renderer* myrenderer) // used to chnage the srpties of the ghost when there states change
+{
+	if (myIsClaimableFlag)
+	{
+		changeText(myrenderer, myPosition, "Ghost_Vulnerable_32.png");
+	}
+	if (myIsDeadFlag)
+	{
+		changeText(myrenderer, myPosition, "Ghost_Dead_32.png");
+	}
+
+}
 //void Ghost::Draw(Drawer* aDrawer)
 //{
 //	if (myIsDeadFlag)

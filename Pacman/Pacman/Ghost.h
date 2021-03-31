@@ -13,12 +13,15 @@ public:
 	Ghost(SDL_Renderer* myrenderer, const Vector2f& aPosition);
 	~Ghost(void);
 
-	void Update(float aTime, World* aWorld);
+	void Update(float aTime, World* aWorld, SDL_Renderer* myrenderer);
 
 	bool myIsClaimableFlag;
 	bool myIsDeadFlag;
-
+	
+	Drawer* MyDrawer;
 	void SetImage(const char* anImage);
+
+	void GhostStates(SDL_Renderer* myrenderer);
 
 	void Die(World* aWorld);
 

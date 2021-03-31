@@ -16,7 +16,7 @@ Avatar::~Avatar(void)
 {
 }
 
-void Avatar::Update(float aTime)
+void Avatar::Update(float aTime, SDL_Renderer* myrenderer)
 {
 	tileSize = 22; // now declared in the .H
 
@@ -37,7 +37,7 @@ void Avatar::Update(float aTime)
 		myPosition += direction * distanceToMove;
 	}
 	
-
+	ChangeDir(myrenderer);
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 }
 
@@ -45,6 +45,25 @@ void Avatar::ChangeSprite(const char* anImage)
 {
 	myImage = anImage;
 	
+}
+void Avatar::ChangeDir(SDL_Renderer* myrenderer) // used to change the facing direction of the player sprites
+{
+	if (Up)
+	{
+		changeText(myrenderer, myPosition, "open_up_32.png");
+	}
+	else if (Left)
+	{
+		changeText(myrenderer, myPosition, "open_left_32.png");
+	}
+	else if (Right)
+	{
+		changeText(myrenderer, myPosition, "open_right_32.png");
+	}
+	else if (Down)
+	{
+		changeText(myrenderer, myPosition, "open_down_32.png");
+	}
 }
 
 

@@ -10,7 +10,9 @@ public:
 	Avatar(SDL_Renderer*,const Vector2f& aPosition);
 	~Avatar(void);
 	void ChangeSprite(const char* anImage); // chnaging the direcion of the sprite
-	void Update(float aTime);
+	void ChangeDir(SDL_Renderer* myrenderer);
+
+	void Update(float aTime, SDL_Renderer* myrenderer);
 
 	const char* avatar_sprite;
 	bool Up;
