@@ -118,6 +118,7 @@ bool Pacman::UpdateInput()
 	if (keystate[SDL_SCANCODE_UP])
 	{
 		myNextMovement = Vector2f(0.f, -1.f);
+		myAvatar->changeText(myDrawer->returnRenderer(), myAvatar->GetPosition(), "open_up_32.png");
 		myAvatar->Up = true;
 		myAvatar->Down = false;
 		myAvatar->Right = false;
@@ -127,6 +128,7 @@ bool Pacman::UpdateInput()
 	else if (keystate[SDL_SCANCODE_DOWN])
 	{
 		myNextMovement = Vector2f(0.f, 1.f);
+		myAvatar->changeText(myDrawer->returnRenderer(), myAvatar->GetPosition(), "open_down_32.png");
 		myAvatar->Down = true;
 		myAvatar->Up = false;
 		myAvatar->Left = false;
@@ -135,6 +137,7 @@ bool Pacman::UpdateInput()
 	else if (keystate[SDL_SCANCODE_RIGHT])
 	{
 		myNextMovement = Vector2f(1.f, 0.f);
+		myAvatar->changeText(myDrawer->returnRenderer(), myAvatar->GetPosition(), "open_right_32.png");
 		myAvatar->Right = true;
 		myAvatar->Down = false;
 		myAvatar->Up = false;
@@ -143,6 +146,7 @@ bool Pacman::UpdateInput()
 	else if (keystate[SDL_SCANCODE_LEFT])
 	{
 		myNextMovement = Vector2f(-1.f, 0.f);
+		myAvatar->changeText(myDrawer->returnRenderer(), myAvatar->GetPosition(), "open_left_32.png");
 		myAvatar->Left = true;
 		myAvatar->Down = false;
 		myAvatar->Right = false;

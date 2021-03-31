@@ -1,10 +1,10 @@
 #include "Avatar.h"
 #include "Drawer.h"
 Avatar::Avatar(SDL_Renderer* myrenderer, const Vector2f& aPosition)
-	: MovableGameEntity(myrenderer, aPosition, "open_32.png")
+	: MovableGameEntity(myrenderer, aPosition, "open_left_32.png")
 {
 	
-
+	
 	Left = true;
 	Right = false;
 	Down = false;
@@ -36,6 +36,7 @@ void Avatar::Update(float aTime)
 		direction.Normalize();
 		myPosition += direction * distanceToMove;
 	}
+	
 
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 }
@@ -43,23 +44,26 @@ void Avatar::Update(float aTime)
 void Avatar::ChangeSprite(const char* anImage)
 {
 	myImage = anImage;
+	
 }
+
+
 //void Avatar::Draw(Drawer* aDrawer)
 //{
-//	if (Up)
-//	{
-//		aDrawer->Draw("open_up_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-//	}
-//	else if (Left)
-//	{
-//		aDrawer->Draw("open_left_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-//	}
-//	else if (Right)
-//	{
-//		aDrawer->Draw("open_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-//	}
-//	else if (Down)
-//	{
-//		aDrawer->Draw("open_down_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-//	}
+	/*if (Up)
+	{
+		aDrawer->Draw("open_up_32.png",posRect.my + 220, (int)myPosition.myY + 60);
+	}
+	else if (Left)
+	{
+		aDrawer->Draw("open_left_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
+	}
+	else if (Right)
+	{
+		aDrawer->Draw("open_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
+	}
+	else if (Down)
+	{
+		aDrawer->Draw("open_down_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
+	}*/
 //}

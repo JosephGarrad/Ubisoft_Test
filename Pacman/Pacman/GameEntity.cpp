@@ -6,28 +6,7 @@ GameEntity::GameEntity(SDL_Renderer* myrenderer, const Vector2f& aPosition, cons
 ,myImage(anImage)
 ,myIdMarkedForDeleteFlag(false)
 {
-	SDL_Surface* surface = IMG_Load(anImage);
-
-	if (!surface)
-		return;
-
-	optimizedSurface = SDL_CreateTextureFromSurface(myrenderer, surface);
-
-	
-	sizeRect.x = 0;
-	sizeRect.y = 0;
-	sizeRect.w = surface->w;
-	sizeRect.h = surface->h;
-
-	
-	posRect.x = aPosition.myX +220;
-	posRect.y = aPosition.myY +60;
-	posRect.w = sizeRect.w;
-	posRect.h = sizeRect.h;
-
-
-	//SDL_DestroyTexture(optimizedSurface); // destroyed this surface as the program was creating a new texture but never destroying or freeing the previous one
-	SDL_FreeSurface(surface); // freeing the surface before making it again to save space and stop duplicates
+	changeText(myrenderer, aPosition, anImage);
 }
 
 GameEntity::~GameEntity(void)
@@ -52,3 +31,30 @@ void GameEntity::moveSprite(int cellX, int cellY)
 	posRect.w = sizeRect.w;
 	posRect.h = sizeRect.h;
 }
+
+void GameEntity::changeText(SDL_Renderer* myrenderer, const Vector2f& aPosition, const char* anImage)
+{
+	SDL_Surface* surface = IMG_Load(anImage);
+
+	if (!surface)
+		return;
+
+	optimizedSurface = SDL_CreateTextureFromSurface(myrenderer, surface);
+
+
+	sizeRect.x = 0;
+	sizeRect.y = 0;
+	sizeRect.w = surface->w;
+	sizeRect.h = surface->h;
+
+
+	posRect.x = aPosition.myX + 220;
+	posRect.y = aPosition.myY + 60;
+	posRect.w = sizeRect.w;
+	posRect.h = sizeRect.h;
+
+
+	//SDL_DestroyTexture(optimizedSurface); // destroyed this surface as the program was creating a new texture but never destroying or freeing the previous one
+	SDL_FreeSurface(surface); // freeing the surface before making it again to save space and stop duplicates
+}
+

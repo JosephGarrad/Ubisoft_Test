@@ -12,7 +12,7 @@ public:
 	void ChangeSprite(const char* anImage); // chnaging the direcion of the sprite
 	void Update(float aTime);
 
-
+	const char* avatar_sprite;
 	bool Up;
 	bool Left;
 	bool Right;

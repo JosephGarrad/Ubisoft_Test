@@ -24,9 +24,15 @@ public:
 
 	void moveSprite(int cellX, int cellY);
 
+	void changeText(SDL_Renderer* myrenderer, const Vector2f& aPosition, const char* anImage);
+
+
+
+	
 	void MarkForDelete() { myIdMarkedForDeleteFlag = true; }
 	bool IsMarkedForDelete() const { return myIdMarkedForDeleteFlag; }
 	SDL_Texture* optimizedSurface;
+	SDL_Surface* surface;
 	SDL_Rect sizeRect;
 	SDL_Rect posRect;
 protected:

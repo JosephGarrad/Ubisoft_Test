@@ -68,4 +68,5 @@ void Drawer::DrawText(const char* aText, const char* aFontFile, int aX, int aY)
 SDL_Renderer* Drawer::returnRenderer()
 {
 	return myRenderer;
+
 }
