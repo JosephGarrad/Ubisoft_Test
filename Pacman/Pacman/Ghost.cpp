@@ -87,7 +87,7 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer)
 	}
 	
 	
-
+	GhostStates(myrenderer);
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 }
 

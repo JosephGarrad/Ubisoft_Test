@@ -1,5 +1,7 @@
 #include "Avatar.h"
 #include "Drawer.h"
+#include <string>
+#include <sstream>
 Avatar::Avatar(SDL_Renderer* myrenderer, const Vector2f& aPosition)
 	: MovableGameEntity(myrenderer, aPosition, "open_left_32.png")
 {
@@ -36,8 +38,22 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer)
 		direction.Normalize();
 		myPosition += direction * distanceToMove;
 	}
+	/*if (!running)
+	{
+
+		start = SDL_GetTicks();
+		running = true;
+	}
+	if (running)
+	{
+	currentTime	= SDL_GetTicks() - start;
+	}*/
+
+
 	
+
 	ChangeDir(myrenderer);
+	animateSprite(aTime, myrenderer);
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 }
 
@@ -46,6 +62,29 @@ void Avatar::ChangeSprite(const char* anImage)
 	myImage = anImage;
 	
 }
+
+
+void Avatar::animateSprite(float deltatime, SDL_Renderer* myrenderer)
+{
+	currentTime += deltatime;
+	if (currentTime >= 3)
+	{
+		UpdateSprite(myrenderer);
+		currentTime = 0;
+		
+		
+	}
+}
+
+
+void Avatar::UpdateSprite(SDL_Renderer* myrenderer)
+{
+	//if (Up && open)
+	//{
+		changeText(myrenderer, myPosition, "closed_up_32.png");
+	//}
+}
+
 void Avatar::ChangeDir(SDL_Renderer* myrenderer) // used to change the facing direction of the player sprites
 {
 	if (Up)
