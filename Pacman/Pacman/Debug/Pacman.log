@@ -4,9 +4,4 @@ F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(25,59): warning C4244: 'argum
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(25,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(57,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(57,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Pacman.cpp
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Pacman.cpp(166,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Pacman.cpp(167,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
   Pacman.vcxproj -> F:\PacManUBI\Ubisoft_Test\Pacman\Debug\Pacman.exe

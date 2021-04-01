@@ -67,7 +67,7 @@ void Avatar::ChangeSprite(const char* anImage)
 void Avatar::animateSprite(float deltatime, SDL_Renderer* myrenderer)
 {
 	currentTime += deltatime;
-	if (currentTime >= 3)
+	if (currentTime >= 0.25f)
 	{
 		UpdateSprite(myrenderer);
 		currentTime = 0;
@@ -79,10 +79,55 @@ void Avatar::animateSprite(float deltatime, SDL_Renderer* myrenderer)
 
 void Avatar::UpdateSprite(SDL_Renderer* myrenderer)
 {
-	//if (Up && open)
-	//{
-		
-	//}
+	if (Up && open)
+	{
+	changeText(myrenderer, myPosition, "closed_up_32.png");
+	closed = true;
+	open = false;
+	}
+	else if (Up && closed)
+	{
+	changeText(myrenderer, myPosition, "open_up_32.png");
+	closed = false;
+	open = true;
+	}
+	else if (Down && open)
+	{
+		changeText(myrenderer, myPosition, "closed_down_32.png");
+		closed = true;
+		open = false;
+	}
+	else if (Down && closed)
+	{
+		changeText(myrenderer, myPosition, "open_down_32.png");
+		closed = false;
+		open = true;
+	}
+	else if (Left && open)
+	{
+		changeText(myrenderer, myPosition, "closed_left_32.png");
+		closed = true;
+		open = false;
+	}
+	else if (Left && closed)
+	{
+		changeText(myrenderer, myPosition, "open_left_32.png");
+		closed = false;
+		open = true;
+	}
+	else if (Right && open)
+	{
+		changeText(myrenderer, myPosition, "closed_right_32.png");
+		closed = true;
+		open = false;
+	}
+	else if (Right && closed)
+	{
+		changeText(myrenderer, myPosition, "open_right_32.png");
+		closed = false;
+		open = true;
+	}
+
 }
 
 void Avatar::ChangeDir(SDL_Renderer* myrenderer) // used to change the facing direction of the player sprites
