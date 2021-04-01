@@ -26,8 +26,8 @@ public:
 	bool Right;
 	bool Down;
 
-	Uint32 startTime;
-	int currentTime;
+	
+	float currentTime;
 
 
 	bool closed = false;

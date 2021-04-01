@@ -52,7 +52,7 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer)
 
 	
 
-	ChangeDir(myrenderer);
+	
 	animateSprite(aTime, myrenderer);
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 }
@@ -81,17 +81,19 @@ void Avatar::UpdateSprite(SDL_Renderer* myrenderer)
 {
 	//if (Up && open)
 	//{
-		changeText(myrenderer, myPosition, "closed_up_32.png");
+		
 	//}
 }
 
 void Avatar::ChangeDir(SDL_Renderer* myrenderer) // used to change the facing direction of the player sprites
 {
-	if (Up)
+	if (Up )
 	{
 		changeText(myrenderer, myPosition, "open_up_32.png");
+		
 	}
-	else if (Left)
+
+	 if (Left)
 	{
 		changeText(myrenderer, myPosition, "open_left_32.png");
 	}
