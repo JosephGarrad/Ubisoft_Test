@@ -37,11 +37,18 @@ public:
 	SDL_Texture* optimizedSurface;
 	SDL_Rect sizeRect;
 	SDL_Rect posRect;
+
+	PathmapTile* fromTile;
+	PathmapTile* toTile;
 private:
 
 	PathmapTile* GetTile(int aFromX, int aFromY);
 	bool Pathfind(PathmapTile* aFromTile, PathmapTile* aToTile, std::list<PathmapTile*>& aList);
 	bool ListDoesNotContain(PathmapTile* aFromTile, std::list<PathmapTile*>& aList);
+
+	
+
+
 
 
 	bool InitPathmap(SDL_Renderer* myrenderer);

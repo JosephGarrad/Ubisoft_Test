@@ -249,8 +249,8 @@ bool World::HasIntersectedCherry(const Vector2f& aPosition)
 
 void World::GetPath(int aFromX, int aFromY, int aToX, int aToY, std::list<PathmapTile*>& aList)
 {
-	PathmapTile* fromTile = GetTile(aFromX, aFromY);
-	PathmapTile* toTile = GetTile(aToX, aToY);
+	 fromTile = GetTile(aFromX, aFromY);
+	 toTile = GetTile(aToX, aToY);
 
 	for(std::list<PathmapTile*>::iterator list_iter = myPathmapTiles.begin(); list_iter != myPathmapTiles.end(); list_iter++)
 	{
@@ -261,12 +261,12 @@ void World::GetPath(int aFromX, int aFromY, int aToX, int aToY, std::list<Pathma
 	Pathfind(fromTile, toTile, aList);
 }
 
-PathmapTile* World::GetTile(int aFromX, int aFromY)
+PathmapTile* World::GetTile(int X, int Y)
 {
 	for(std::list<PathmapTile*>::iterator list_iter = myPathmapTiles.begin(); list_iter != myPathmapTiles.end(); list_iter++)
 	{
 		PathmapTile* tile = *list_iter;
-		if (tile->myX == aFromX && tile->myY == aFromY)
+		if (tile->myX == X && tile->myY == Y)
 		{
 			return tile;
 		}
@@ -288,6 +288,9 @@ bool World::ListDoesNotContain(PathmapTile* aFromTile, std::list<PathmapTile*>& 
 
 	return true;
 }
+
+
+
 
 bool SortFromGhostSpawn(PathmapTile* a, PathmapTile* b)
 {

@@ -64,7 +64,6 @@
       <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Pathfinding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pacman.h">
@@ -106,6 +105,5 @@
     <ClInclude Include="Vector2f.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Pathfinding.h" />
   </ItemGroup>
 </Project>

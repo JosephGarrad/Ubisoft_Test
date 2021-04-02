@@ -18,6 +18,10 @@ public:
 	~Avatar(void);
 	void ChangeSprite(const char* anImage); // chnaging the direcion of the sprite
 
+	void Restart();
+
+
+
 	
 
 	
@@ -37,7 +41,11 @@ public:
 	bool Right;
 	bool Down;
 
-	
+	int starttileX;
+	int starttileY;
+
+
+	bool restarted = false;
 	float currentTime;
 
 

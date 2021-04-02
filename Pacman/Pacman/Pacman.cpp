@@ -100,6 +100,7 @@ bool Pacman::Update(float aTime)
 			myLives--;
 
 			myAvatar->SetPosition(Vector2f(13 * 22, 22 * 22));
+			
 			myGhost->SetPosition(Vector2f(13 * 22, 13 * 22));
 		}
 		else if (myGhost->myIsClaimableFlag && !myGhost->myIsDeadFlag)
@@ -109,7 +110,7 @@ bool Pacman::Update(float aTime)
 			myGhost->Die(myWorld);
 		}
 	}
-	
+
 	
 	
 	if (aTime > 0)

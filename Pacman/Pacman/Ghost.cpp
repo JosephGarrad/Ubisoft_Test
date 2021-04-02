@@ -78,7 +78,7 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar*
 
 	
 	tileSize = 22; // now declared in the .H
-
+	Vector2f finalDes(myavatar->GetCurrentTileX() * tileSize, myavatar->GetCurrentTileY() * tileSize);
 	Vector2f destination(myNextTileX * tileSize, myNextTileY * tileSize);
 	Vector2f direction = destination - myPosition;
 
@@ -98,8 +98,10 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar*
 	
 	
 	GhostStates(myrenderer);
+
+		aWorld->GetPath(myCurrentTileX, myCurrentTileY, myavatar->GetCurrentTileX(), myavatar->GetCurrentTileY(), myPath);
 	
-	aWorld->GetPath(myCurrentTileX, myCurrentTileY, myavatar->GetCurrentTileX(), myavatar->GetCurrentTileY(), myPath);
+	
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 	
 	}

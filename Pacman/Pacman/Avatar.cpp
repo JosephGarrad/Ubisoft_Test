@@ -6,7 +6,9 @@ Avatar::Avatar(SDL_Renderer* myrenderer, const Vector2f& aPosition)
 	: MovableGameEntity(myrenderer, aPosition, "open_left_32.png")
 {
 	
-	
+	starttileX = myCurrentTileX;
+	starttileY = myCurrentTileY;
+
 	Left = true;
 	Right = false;
 	Down = false;
@@ -27,6 +29,8 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer, World* myworld)
 
 	distanceToMove = aTime * 30.f; // now declared in the .H
 
+
+
 	if (distanceToMove > direction.Length())
 	{
 		myPosition = destination;
@@ -39,6 +43,7 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer, World* myworld)
 		direction.Normalize();
 		myPosition += direction * distanceToMove;
 	}
+	
 
 	if (myPosition.myX <= myworld->sizeRect.x)
 	{
@@ -62,7 +67,11 @@ void Avatar::ChangeSprite(const char* anImage)
 	
 }
 
-
+void Avatar::Restart()
+{
+	myPosition = Vector2f(13 * 22, 22 * 22);
+	
+}
 
 
 void Avatar::animateSprite(float deltatime, SDL_Renderer* myrenderer)
