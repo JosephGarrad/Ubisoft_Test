@@ -25,7 +25,7 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer, World* myworld)
 	Vector2f destination(myNextTileX * tileSize, myNextTileY * tileSize);
 	Vector2f direction = destination - myPosition;
 
-	distanceToMove = aTime * 30.f; // now declared in the .H
+	distanceToMove = aTime * 300.f; // now declared in the .H
 
 	if (distanceToMove > direction.Length())
 	{
@@ -49,7 +49,8 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer, World* myworld)
 		myPosition.myX = 0;
 	}
 
-	UpdateTiles(myCurrentTileX, myCurrentTileY);
+	
+
 	animateSprite(aTime, myrenderer);
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 

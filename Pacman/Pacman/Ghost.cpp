@@ -37,6 +37,7 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar*
 	
 	if (IsAtDestination())
 	{
+		
 		if (!myPath.empty())
 		{
 			PathmapTile* nextTile = myPath.front();
@@ -96,7 +97,7 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar*
 	
 	
 	GhostStates(myrenderer);
-	UpdateTiles(myCurrentTileX, myCurrentTileY);
+
 	
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 	
@@ -118,9 +119,13 @@ void Ghost::GhostStates(SDL_Renderer* myrenderer) // used to chnage the srpties 
 	{
 		changeText(myrenderer, myPosition, "Ghost_Vulnerable_32.png");
 	}
-	if (myIsDeadFlag)
+	else if (myIsDeadFlag)
 	{
 		changeText(myrenderer, myPosition, "Ghost_Dead_32.png");
+	}
+	else
+	{
+		changeText(myrenderer, myPosition, "ghost_32.png");
 	}
 
 }

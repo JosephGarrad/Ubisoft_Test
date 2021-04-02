@@ -172,6 +172,10 @@ bool World::HasIntersectedDot(const Vector2f& aPosition)
 			return true;
 		}
 	}
+	if (myDots.size() == 0)
+	{
+		win = true;
+	}
 
 	return false;
 }

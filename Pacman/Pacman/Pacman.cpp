@@ -24,16 +24,16 @@ Pacman* Pacman::Create(Drawer* aDrawer)
 }
 
 Pacman::Pacman(Drawer* aDrawer)
-: myDrawer(aDrawer)
-, myTimeToNextUpdate(0.f)
-, myNextMovement(-1.f,0.f)
-, myScore(0)
-, myFps(0)
-, myLives(3)
-, myGhostGhostCounter(0.f)
+	: myDrawer(aDrawer)
+	, myTimeToNextUpdate(0.f)
+	, myNextMovement(-1.f, 0.f)
+	, myScore(0)
+	, myFps(0)
+	, myLives(3)
+	, myGhostGhostCounter(0.f)
 {
-	myAvatar = new Avatar(myDrawer->returnRenderer(), Vector2f(13*22,22*22));
-	myGhost = new Ghost(myDrawer->returnRenderer(), Vector2f(13*22,13*22));
+	myAvatar = new Avatar(myDrawer->returnRenderer(), Vector2f(13 * 22, 22 * 22));
+	myGhost = new Ghost(myDrawer->returnRenderer(), Vector2f(13 * 22, 13 * 22));
 	myWorld = new World();
 }
 
@@ -47,7 +47,7 @@ Pacman::~Pacman(void)
 bool Pacman::Init()
 {
 	myWorld->Init(myDrawer->returnRenderer());
-	
+
 	return true;
 }
 
@@ -63,12 +63,12 @@ bool Pacman::Update(float aTime)
 	}
 	else if (myLives <= 0)
 	{
-		myDrawer->DrawText("You lose!", "freefont-ttf\\sfd\\FreeMono.ttf", 20, 70);	
+		myDrawer->DrawText("You lose!", "freefont-ttf\\sfd\\FreeMono.ttf", 20, 70);
 		return true;
 	}
 
 	MoveAvatar();
-	myAvatar->Update(aTime, myDrawer->returnRenderer(),myWorld);
+	myAvatar->Update(aTime, myDrawer->returnRenderer(), myWorld);
 	myGhost->Update(aTime, myWorld, myDrawer->returnRenderer(), myAvatar);
 	
 	if (myWorld->HasIntersectedDot(myAvatar->GetPosition()))
@@ -94,8 +94,8 @@ bool Pacman::Update(float aTime)
 		{
 			myLives--;
 
-			myAvatar->SetPosition(Vector2f(13*22,22*22));
-			myGhost->SetPosition(Vector2f(13*22,13*22));
+			myAvatar->SetPosition(Vector2f(13 * 22, 22 * 22));
+			myGhost->SetPosition(Vector2f(13 * 22, 13 * 22));
 		}
 		else if (myGhost->myIsClaimableFlag && !myGhost->myIsDeadFlag)
 		{
@@ -104,6 +104,7 @@ bool Pacman::Update(float aTime)
 			myGhost->Die(myWorld);
 		}
 	}
+	
 	
 	
 	if (aTime > 0)
@@ -178,6 +179,10 @@ void Pacman::MoveAvatar()
 
 bool Pacman::CheckEndGameCondition()
 {
+	if (myWorld->win)
+	{
+		return true;
+	}
 	return false;
 }
 

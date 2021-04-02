@@ -30,7 +30,7 @@ public:
 	bool HasIntersectedDot(const Vector2f& aPosition);
 	bool HasIntersectedBigDot(const Vector2f& aPosition);
 	bool HasIntersectedCherry(const Vector2f& aPosition);
-
+	bool win = false;
 	void Update();
 
 	void GetPath(int aFromX, int aFromY, int aToX, int aToY, std::list<PathmapTile*>& aList);
