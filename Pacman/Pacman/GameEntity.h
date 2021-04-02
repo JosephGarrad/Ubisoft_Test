@@ -24,6 +24,10 @@ public:
 
 	void moveSprite(int cellX, int cellY);
 
+
+
+
+
 	void changeText(SDL_Renderer* myrenderer, const Vector2f& aPosition, const char* anImage);
 
 

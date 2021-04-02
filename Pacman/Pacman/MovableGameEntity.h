@@ -15,7 +15,7 @@ public:
 	int GetCurrentTileY() const { return myCurrentTileY; }
 
 	bool IsAtDestination();
-
+	void UpdateTiles(int tilex, int tiley);
 protected:
 
 	int myCurrentTileX;

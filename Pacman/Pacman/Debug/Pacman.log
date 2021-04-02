@@ -1,7 +1,8 @@
-﻿  Avatar.cpp
+﻿  Ghost.cpp
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(25,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(25,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(57,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(57,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(80,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(80,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(101,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(101,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Pacman.vcxproj -> F:\PacManUBI\Ubisoft_Test\Pacman\Debug\Pacman.exe

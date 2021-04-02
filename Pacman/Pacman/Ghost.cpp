@@ -11,6 +11,8 @@ Ghost::Ghost(SDL_Renderer* myrenderer, const Vector2f& aPosition)
 
 	myDesiredMovementX = 0;
 	myDesiredMovementY = -1;
+
+	
 }
 
 Ghost::~Ghost(void)
@@ -20,18 +22,19 @@ Ghost::~Ghost(void)
 void Ghost::Die(World* aWorld)
 {
 	myPath.clear();
-	aWorld->GetPath(myCurrentTileX, myCurrentTileY, 13, 13, myPath);
+	//aWorld->GetPath(myCurrentTileX, myCurrentTileY, 13, 13, myPath);
 }
 
-void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer)
+void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar* myavatar)
 {
+	
 	 speed = 30.f; //moved decleration into .h
-	nextTileX = GetCurrentTileX() + myDesiredMovementX; // both now declared in .H
+	nextTileX = GetCurrentTileX() + myDesiredMovementX; // both now declared in .H // so if we need to go to the next tile on the x it sents the disired movement to that tile 
 	nextTileY = GetCurrentTileY() + myDesiredMovementY;
-
+	
 	if (myIsDeadFlag)
 		speed = 120.f;
-
+	
 	if (IsAtDestination())
 	{
 		if (!myPath.empty())
@@ -39,6 +42,7 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer)
 			PathmapTile* nextTile = myPath.front();
 			myPath.pop_front();
 			SetNextTile(nextTile->myX, nextTile->myY);
+		
 		}
 		else if (aWorld->TileIsValid(nextTileX, nextTileY))
 		{
@@ -50,7 +54,7 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer)
 			{
 				myDesiredMovementX = 0;
 				myDesiredMovementY = 1;
-			} else if (myDesiredMovementY == 1)
+			}else if (myDesiredMovementY == 1)
 			{
 				myDesiredMovementX = -1;
 				myDesiredMovementY = 0;			
@@ -58,7 +62,9 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer)
 			{
 				myDesiredMovementX = 0;
 				myDesiredMovementY = -1;
-			} else
+			} 
+			
+			else
 			{
 				myDesiredMovementX = 1;
 				myDesiredMovementY = 0;
@@ -68,7 +74,9 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer)
 		}
 	}
 
+	
 	tileSize = 22; // now declared in the .H
+
 	Vector2f destination(myNextTileX * tileSize, myNextTileY * tileSize);
 	Vector2f direction = destination - myPosition;
 
@@ -88,12 +96,20 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer)
 	
 	
 	GhostStates(myrenderer);
+	UpdateTiles(myCurrentTileX, myCurrentTileY);
+	
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
-}
+	
+	}
 
 void Ghost::SetImage(const char* anImage)
 {
 	myImage = anImage;
+}
+
+void Ghost::MakePath(World* aWorld, Avatar* myavatar)
+{
+	aWorld->GetPath(myCurrentTileX, myCurrentTileY, myavatar->GetCurrentTileX(), myavatar->GetCurrentTileY(), myPath);
 }
 
 void Ghost::GhostStates(SDL_Renderer* myrenderer) // used to chnage the srpties of the ghost when there states change

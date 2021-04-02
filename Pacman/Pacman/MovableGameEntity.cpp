@@ -11,6 +11,12 @@ MovableGameEntity::~MovableGameEntity(void)
 {
 }
 
+void MovableGameEntity::UpdateTiles(int tilex, int tiley)
+{
+	myCurrentTileX = tilex;
+	myCurrentTileY = tiley;
+}
+
 bool MovableGameEntity::IsAtDestination()
 {
 	if (myCurrentTileX == myNextTileX && myCurrentTileY == myNextTileY)

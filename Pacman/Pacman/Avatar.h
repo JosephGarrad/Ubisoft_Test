@@ -7,12 +7,20 @@
 #include <sstream>
 #include <chrono>
 
+
 class Avatar : public MovableGameEntity
 {
 public:
 	Avatar(SDL_Renderer*,const Vector2f& aPosition);
 	~Avatar(void);
 	void ChangeSprite(const char* anImage); // chnaging the direcion of the sprite
+
+	
+
+	
+
+	//Vector2f GetPOS(const Vector2f& aPosition);
+	
 	void animateSprite(float deltatime, SDL_Renderer* myrenderer);
 	
 	void UpdateSprite(SDL_Renderer* myrenderer);
@@ -33,7 +41,7 @@ public:
 	bool closed = false;
 	bool open = true;
 	bool running = false;
-	
+
 
 	std::stringstream TimeToSwap;
 	std::stringstream time;

@@ -21,7 +21,7 @@ Avatar::~Avatar(void)
 void Avatar::Update(float aTime, SDL_Renderer* myrenderer)
 {
 	tileSize = 22; // now declared in the .H
-
+	
 	Vector2f destination(myNextTileX * tileSize, myNextTileY * tileSize);
 	Vector2f direction = destination - myPosition;
 
@@ -32,29 +32,20 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer)
 		myPosition = destination;
 		myCurrentTileX = myNextTileX;
 		myCurrentTileY = myNextTileY;
+		
 	}
 	else
 	{
 		direction.Normalize();
 		myPosition += direction * distanceToMove;
 	}
-	/*if (!running)
-	{
-
-		start = SDL_GetTicks();
-		running = true;
-	}
-	if (running)
-	{
-	currentTime	= SDL_GetTicks() - start;
-	}*/
 
 
-	
 
-	
+	UpdateTiles(myCurrentTileX, myCurrentTileY);
 	animateSprite(aTime, myrenderer);
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
+
 }
 
 void Avatar::ChangeSprite(const char* anImage)
@@ -62,6 +53,8 @@ void Avatar::ChangeSprite(const char* anImage)
 	myImage = anImage;
 	
 }
+
+
 
 
 void Avatar::animateSprite(float deltatime, SDL_Renderer* myrenderer)

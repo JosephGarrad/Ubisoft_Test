@@ -32,6 +32,10 @@ void GameEntity::moveSprite(int cellX, int cellY)
 	posRect.h = sizeRect.h;
 }
 
+
+
+
+
 void GameEntity::changeText(SDL_Renderer* myrenderer, const Vector2f& aPosition, const char* anImage)
 {
 	SDL_Surface* surface = IMG_Load(anImage);

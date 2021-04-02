@@ -69,8 +69,8 @@ bool Pacman::Update(float aTime)
 
 	MoveAvatar();
 	myAvatar->Update(aTime, myDrawer->returnRenderer());
-	myGhost->Update(aTime, myWorld, myDrawer->returnRenderer());
-
+	myGhost->Update(aTime, myWorld, myDrawer->returnRenderer(), myAvatar);
+	
 	if (myWorld->HasIntersectedDot(myAvatar->GetPosition()))
 		myScore += 10;
 
@@ -173,6 +173,7 @@ void Pacman::MoveAvatar()
 			myAvatar->SetNextTile(nextTileX, nextTileY);
 		}
 	}
+	
 }
 
 bool Pacman::CheckEndGameCondition()
