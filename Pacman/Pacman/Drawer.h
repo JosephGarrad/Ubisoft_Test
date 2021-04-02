@@ -15,7 +15,7 @@ public:
 	void Draw(SDL_Texture* Texture, SDL_Rect SizeRect, SDL_Rect PosRect);
 	void DrawText(const char* aText, const char* aFontFile, int aX, int aY);
 
-	SDL_Renderer* returnRenderer();
+	SDL_Renderer* returnRenderer(); // use this to return the renderer
 
 private:
 	Drawer(SDL_Window* aWindow, SDL_Renderer* aRenderer);

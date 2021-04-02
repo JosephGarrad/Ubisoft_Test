@@ -41,13 +41,13 @@ void World::Init(SDL_Renderer* myrenderer)
 	posRect.h = sizeRect.h;
 
 
-	//SDL_DestroyTexture(optimizedSurface); // destroyed this surface as the program was creating a new texture but never destroying or freeing the previous one
+	
 	SDL_FreeSurface(surface); // freeing the surface before making it again to save space and stop duplicates
 
 	InitPathmap(myrenderer);
 	InitDots(myrenderer);
 	InitBigDots(myrenderer);
-	InitCherry(myrenderer);
+	InitCherry(myrenderer); // calling the initilise cherry function and passing through the renderer
 }
 
 bool World::InitPathmap(SDL_Renderer* myrenderer)
@@ -102,10 +102,10 @@ bool World::InitDots(SDL_Renderer* myrenderer)
 
 	return true;
 }
-bool World::InitCherry(SDL_Renderer* myrenderer)
+bool World::InitCherry(SDL_Renderer* myrenderer) // initilising the cherries 
 {
 	std::string line;
-	std::ifstream myfile("map.txt");
+	std::ifstream myfile("map.txt"); // reading in from a text file that holds the map data
 	if (myfile.is_open())
 	{
 		int lineIndex = 0;
@@ -114,10 +114,10 @@ bool World::InitCherry(SDL_Renderer* myrenderer)
 			std::getline(myfile, line);
 			for (unsigned int i = 0; i < line.length(); i++)
 			{
-				if (line[i] == '~')
+				if (line[i] == '~') // if any chracter in the text file is this 
 				{
-					Cherry* dot = new Cherry(myrenderer, Vector2f(i * 22, lineIndex * 22));
-					myCherry.push_back(dot);
+					Cherry* dot = new Cherry(myrenderer, Vector2f(i * 22, lineIndex * 22)); // place a cherry at this position
+					myCherry.push_back(dot); // add to the list 
 
 				}
 			}
@@ -207,9 +207,9 @@ bool World::HasIntersectedDot(const Vector2f& aPosition)
 			return true;
 		}
 	}
-	if (myDots.size() == 0)
+	if (myDots.size() == 0) // if all dots have been removed from the game and the list is empty 
 	{
-		win = true;
+		win = true; // set the win statement to true
 	}
 
 	return false;
@@ -231,16 +231,16 @@ bool World::HasIntersectedBigDot(const Vector2f& aPosition)
 	return false;
 }
 
-bool World::HasIntersectedCherry(const Vector2f& aPosition)
+bool World::HasIntersectedCherry(const Vector2f& aPosition) // is called when the player intersects a cherry.
 {
 	for (std::list<Cherry*>::iterator list_iter = myCherry.begin(); list_iter != myCherry.end(); list_iter++)
 	{
 		Cherry* dot = *list_iter;
-		if ((dot->GetPosition() - aPosition).Length() < 5.f)
+		if ((dot->GetPosition() - aPosition).Length() < 5.f) // of the position from the cherry is less than 5
 		{
-			myCherry.remove(dot);
-			delete dot;
-			return true;
+			myCherry.remove(dot); // remove the cherry from the list 
+			delete dot; // delete it
+			return true; // make the function return true 
 		}
 	}
 

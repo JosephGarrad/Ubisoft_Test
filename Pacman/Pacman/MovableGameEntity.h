@@ -18,7 +18,7 @@ public:
 	int GetCurrentTileX() const { return myCurrentTileX; }
 	int GetCurrentTileY() const { return myCurrentTileY; }
 	
-	void UpdateTiles(int tileX, int TileY);
+	void UpdateTiles(int tileX, int TileY); // updating the tiles that the entity is on to help with the pathfinding (not working)
 	bool IsAtDestination();
 	
 protected:

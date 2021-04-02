@@ -6,7 +6,7 @@ GameEntity::GameEntity(SDL_Renderer* myrenderer, const Vector2f& aPosition, cons
 ,myImage(anImage)
 ,myIdMarkedForDeleteFlag(false)
 {
-	changeText(myrenderer, aPosition, anImage);
+	changeText(myrenderer, aPosition, anImage); // using this to pass through a texture whenever the sprite needs to be chnaged 
 }
 
 GameEntity::~GameEntity(void)
@@ -21,10 +21,10 @@ bool GameEntity::Intersect(GameEntity* aGameEntity)
 
 void GameEntity::Draw(Drawer* aDrawer)
 {
-	aDrawer->Draw(optimizedSurface, sizeRect, posRect);
+	aDrawer->Draw(optimizedSurface, sizeRect, posRect); // drawing the surface to the window
 }
 
-void GameEntity::moveSprite(int cellX, int cellY)
+void GameEntity::moveSprite(int cellX, int cellY) // assigning the sprites position to its previous position to update movement
 {
 	posRect.x = cellX;
 	posRect.y = cellY;
@@ -36,9 +36,9 @@ void GameEntity::moveSprite(int cellX, int cellY)
 
 
 
-void GameEntity::changeText(SDL_Renderer* myrenderer, const Vector2f& aPosition, const char* anImage)
+void GameEntity::changeText(SDL_Renderer* myrenderer, const Vector2f& aPosition, const char* anImage) // using this function to store a surface and texure.
 {
-	SDL_Surface* surface = IMG_Load(anImage);
+	SDL_Surface* surface = IMG_Load(anImage); // stores an image that is used for sprites that inherite from this class
 
 	if (!surface)
 		return;
@@ -58,7 +58,7 @@ void GameEntity::changeText(SDL_Renderer* myrenderer, const Vector2f& aPosition,
 	posRect.h = sizeRect.h;
 
 
-	//SDL_DestroyTexture(optimizedSurface); // destroyed this surface as the program was creating a new texture but never destroying or freeing the previous one
+	
 	SDL_FreeSurface(surface); // freeing the surface before making it again to save space and stop duplicates
 }
 

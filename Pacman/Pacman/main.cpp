@@ -42,8 +42,9 @@ int main(int argc, char **argv)
 	{
 		if (event.type == SDL_QUIT)
 		{
-			quit = true;
+			quit = true; // if an event of SDL quit is triggered the window closes and the game ends 
 		}
+
 		float currentFrame = (float) SDL_GetTicks() * 0.001f;
 		float elapsedTime = currentFrame - lastFrame;
 		

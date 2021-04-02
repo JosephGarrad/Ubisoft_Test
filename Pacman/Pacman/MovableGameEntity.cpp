@@ -12,9 +12,9 @@ MovableGameEntity::~MovableGameEntity(void)
 }
 
 
-void MovableGameEntity::UpdateTiles(int tileX, int TileY)
+void MovableGameEntity::UpdateTiles(int tileX, int TileY) 
 {
-	myCurrentTileX = tileX;
+	myCurrentTileX = tileX; // passing through the entities current tile to constantly update the tiles X and Y position
 	myCurrentTileY = TileY;
 }
 

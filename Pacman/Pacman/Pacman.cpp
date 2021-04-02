@@ -32,7 +32,7 @@ Pacman::Pacman(Drawer* aDrawer)
 	, myLives(3)
 	, myGhostGhostCounter(0.f)
 {
-	myAvatar = new Avatar(myDrawer->returnRenderer(), Vector2f(13 * 22, 22 * 22));
+	myAvatar = new Avatar(myDrawer->returnRenderer(), Vector2f(13 * 22, 22 * 22)); // retriving the renderer and positions for the newly made objects
 	myGhost = new Ghost(myDrawer->returnRenderer(), Vector2f(13 * 22, 13 * 22));
 	myWorld = new World();
 }
@@ -74,7 +74,7 @@ bool Pacman::Update(float aTime)
 	if (myWorld->HasIntersectedDot(myAvatar->GetPosition()))
 		myScore += 10;
 
-	if (myWorld->HasIntersectedCherry(myAvatar->GetPosition()))
+	if (myWorld->HasIntersectedCherry(myAvatar->GetPosition())) // if a cherry (RED GHOST) is intersected with increase the score by 100
 	{
 		myScore += 100;
 	}
@@ -126,7 +126,7 @@ bool Pacman::UpdateInput()
 	if (keystate[SDL_SCANCODE_UP])
 	{
 		myNextMovement = Vector2f(0.f, -1.f);
-		myAvatar->ChangeDir(myDrawer->returnRenderer());
+		myAvatar->ChangeDir(myDrawer->returnRenderer()); // whenever a button is pressed to change the direction of the character, we call this function and switch the correlating booleans to true and/or false
 		myAvatar->Up = true;
 		myAvatar->Down = false;
 		myAvatar->Right = false;
@@ -187,7 +187,7 @@ void Pacman::MoveAvatar()
 
 bool Pacman::CheckEndGameCondition()
 {
-	if (myWorld->win)
+	if (myWorld->win) // if the win boolean is set to true end the game as a win
 	{
 		return true;
 	}

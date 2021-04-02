@@ -16,22 +16,21 @@ public:
 
 	void Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar* myavatar);
 
-	bool myIsClaimableFlag;
-	bool myIsDeadFlag;
-	
-	Drawer* MyDrawer;
-	Avatar* MyAvatar;
-	
 	void SetImage(const char* anImage);
 
-	void MakePath(World* aWorld, Avatar* myavatar);
+	void MakePath(World* aWorld, Avatar* myavatar); // this function allows for us to use the "Get path" function 
 
-	void GhostStates(SDL_Renderer* myrenderer);
+	void GhostStates(SDL_Renderer* myrenderer); // this controls the ghosts states and changes thier sprites acordingly
 
 	void Die(World* aWorld);
 
-	//void Draw(Drawer* aDrawer);
+	Drawer* MyDrawer;
+	Avatar* MyAvatar; // getting a pointer to the avatar class to allow me to access variables and functions.
+
 	std::list<PathmapTile*> myPath;
+	bool myIsClaimableFlag;
+	bool myIsDeadFlag;
+
 protected:
 	
 	int myDesiredMovementX;

@@ -1,4 +1,38 @@
-﻿  World.cpp
+﻿  Avatar.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(27,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(27,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(60,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Avatar.cpp(60,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  BigDot.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Cherry.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Dot.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  GameEntity.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\GameEntity.cpp(55,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\GameEntity.cpp(56,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Ghost.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(82,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(82,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(102,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.cpp(102,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  MovableGameEntity.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\MovableGameEntity.cpp(6,49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\MovableGameEntity.cpp(7,49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Pacman.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Ghost.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Pacman.cpp(174,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Pacman.cpp(175,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  StaticGameEntity.cpp
+F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  World.cpp
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\Vector2f.h(72,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(91,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(91,47): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
@@ -6,4 +40,5 @@ F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(119,70): warning C4244: 'argum
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(119,54): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(148,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 F:\PacManUBI\Ubisoft_Test\Pacman\Pacman\World.cpp(148,53): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Generating Code...
   Pacman.vcxproj -> F:\PacManUBI\Ubisoft_Test\Pacman\Debug\Pacman.exe

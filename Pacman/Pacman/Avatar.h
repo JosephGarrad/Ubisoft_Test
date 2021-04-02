@@ -18,50 +18,29 @@ public:
 	~Avatar(void);
 	void ChangeSprite(const char* anImage); // chnaging the direcion of the sprite
 
-	void Restart();
-
-
-
 	
-
-	
-
-	//Vector2f GetPOS(const Vector2f& aPosition);
-	
-	void animateSprite(float deltatime, SDL_Renderer* myrenderer);
+	void animateSprite(float deltatime, SDL_Renderer* myrenderer); // use this to animate the sprite
 	
 	void UpdateSprite(SDL_Renderer* myrenderer);
-	void ChangeDir(SDL_Renderer* myrenderer);
+	void ChangeDir(SDL_Renderer* myrenderer); // use this to change direction of the sprite 
 
 	void Update(float aTime, SDL_Renderer* myrenderer, World* myworld);
 
-	const char* avatar_sprite;
+
+
 	bool Up;
 	bool Left;
 	bool Right;
 	bool Down;
-
 	int starttileX;
 	int starttileY;
-
-
-	bool restarted = false;
 	float currentTime;
 
-
-	bool closed = false;
-	bool open = true;
-	bool running = false;
-
-
-	std::stringstream TimeToSwap;
-	std::stringstream time;
-	
-	//void Draw(Drawer* aDrawer);
-	
 private:
 	int tileSize; // moved from CPP
 	float distanceToMove; // moved from CPP
+	bool closed = false;
+	bool open = true;
 };
 
 #endif //AVATAR_H

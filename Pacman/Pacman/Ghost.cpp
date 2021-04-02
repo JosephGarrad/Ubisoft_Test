@@ -78,7 +78,7 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar*
 
 	
 	tileSize = 22; // now declared in the .H
-	Vector2f finalDes(myavatar->GetCurrentTileX() * tileSize, myavatar->GetCurrentTileY() * tileSize);
+
 	Vector2f destination(myNextTileX * tileSize, myNextTileY * tileSize);
 	Vector2f direction = destination - myPosition;
 
@@ -97,47 +97,35 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar*
 	}
 	
 	
-	GhostStates(myrenderer);
-
-		aWorld->GetPath(myCurrentTileX, myCurrentTileY, myavatar->GetCurrentTileX(), myavatar->GetCurrentTileY(), myPath);
-	
-	
+	GhostStates(myrenderer); // calling the Ghosts states function
+	//aWorld->GetPath(myCurrentTileX, myCurrentTileY, myavatar->GetCurrentTileX(), myavatar->GetCurrentTileY(), myPath); // was using this line to create a path between the Ghost and Avatar to allow for pathfinding, however i did not manage to complete implementation 
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 	
-	}
+}
 
 void Ghost::SetImage(const char* anImage)
 {
 	myImage = anImage;
 }
 
-void Ghost::MakePath(World* aWorld, Avatar* myavatar)
+void Ghost::MakePath(World* aWorld, Avatar* myavatar) // calling this function allows us to create a path between the Ghost and Avatar
 {
 	aWorld->GetPath(myCurrentTileX, myCurrentTileY, myavatar->GetCurrentTileX(), myavatar->GetCurrentTileY(), myPath);
 }
 
 void Ghost::GhostStates(SDL_Renderer* myrenderer) // used to chnage the srpties of the ghost when there states change
 {
-	if (myIsDeadFlag)
+	if (myIsDeadFlag) // if the Ghost is dead
 	{
-		changeText(myrenderer, myPosition, "Ghost_Dead_32.png");
+		changeText(myrenderer, myPosition, "Ghost_Dead_32.png"); // set its sprite to the dead sprite 
 	}
-	else if (myIsClaimableFlag)
+	else if (myIsClaimableFlag) // if the Ghost is killable 
 	{
-		changeText(myrenderer, myPosition, "Ghost_Vulnerable_32.png");
+		changeText(myrenderer, myPosition, "Ghost_Vulnerable_32.png"); // set it sprite to be vunerable
 	}
 	else
 	{
-		changeText(myrenderer, myPosition, "ghost_32.png");
+		changeText(myrenderer, myPosition, "ghost_32.png"); // otherwise make the sprite the default Ghost sprite 
 	}
 
 }
-//void Ghost::Draw(Drawer* aDrawer)
-//{
-//	if (myIsDeadFlag)
-//		aDrawer->Draw("Ghost_Dead_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-//	else if (myIsClaimableFlag)
-//		aDrawer->Draw("Ghost_Vulnerable_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-//	else
-//		aDrawer->Draw(myImage, (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-//}

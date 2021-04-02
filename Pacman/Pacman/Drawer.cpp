@@ -35,11 +35,11 @@ bool Drawer::Init()
 
 void Drawer::Draw(SDL_Texture* Texture, SDL_Rect SizeRect, SDL_Rect PosRect)
 {
-	SDL_RenderCopy(myRenderer, Texture, &SizeRect, &PosRect);
+	SDL_RenderCopy(myRenderer, Texture, &SizeRect, &PosRect); // make a copy of the renderer
 
 }
 
-void Drawer::DrawText(const char* aText, const char* aFontFile, int aX, int aY)
+void Drawer::DrawText(const char* aText, const char* aFontFile, int aX, int aY) // using this to render text to screen
 {
 	TTF_Font* font=TTF_OpenFont(aFontFile, 24);
 
@@ -62,11 +62,10 @@ void Drawer::DrawText(const char* aText, const char* aFontFile, int aX, int aY)
 
 	SDL_RenderCopy(myRenderer, optimizedSurface, &sizeRect, &posRect);
 	SDL_DestroyTexture(optimizedSurface);
-	SDL_FreeSurface(surface);
+	SDL_FreeSurface(surface); // freeing the surface to stop memory leak
 	TTF_CloseFont(font);
 }
 SDL_Renderer* Drawer::returnRenderer()
 {
-	return myRenderer;
-
+	return myRenderer; // retrurning the renderer so other classes can get access to it
 }

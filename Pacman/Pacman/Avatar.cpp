@@ -7,9 +7,9 @@ Avatar::Avatar(SDL_Renderer* myrenderer, const Vector2f& aPosition)
 {
 	
 	starttileX = myCurrentTileX;
-	starttileY = myCurrentTileY;
+	starttileY = myCurrentTileY; // storing the Avatars first tiles;
 
-	Left = true;
+	Left = true; // created four booleans each one represents a different direction for the Avatar
 	Right = false;
 	Down = false;
 	Up = false;
@@ -45,59 +45,53 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer, World* myworld)
 	}
 	
 
-	if (myPosition.myX <= myworld->sizeRect.x)
+	if (myPosition.myX <= myworld->sizeRect.x) // if the Avatar has reached the left side of the map
 	{
-		myPosition.myX = 575;
+		myPosition.myX = 575; // teleport the Avatar to the right side of the map 
 	}
-	if (myPosition.myX >= myworld->sizeRect.x + 575)
+	if (myPosition.myX >= myworld->sizeRect.x + 575) // if the Avatar reaches the Right side of the map
 	{
-		myPosition.myX = 0;
+		myPosition.myX = 0; // teleport them to the left side
 	}
 
 	
 	
-	animateSprite(aTime, myrenderer);
-	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
-	UpdateTiles(myCurrentTileX, myCurrentTileY);
+	animateSprite(aTime, myrenderer); // calling the animate sprite function
+	moveSprite(myPosition.myX + 220, myPosition.myY + 60); // calling the move sprite function and update the sprites position
+	UpdateTiles(myCurrentTileX, myCurrentTileY); // calling the updatetiles function and passing through the Avatars current Tiles 
 }
 
 void Avatar::ChangeSprite(const char* anImage)
 {
 	myImage = anImage;
-	
-}
-
-void Avatar::Restart()
-{
-	myPosition = Vector2f(13 * 22, 22 * 22);
-	
 }
 
 
-void Avatar::animateSprite(float deltatime, SDL_Renderer* myrenderer)
+
+void Avatar::animateSprite(float deltatime, SDL_Renderer* myrenderer) // use this function to animate the Avatar sprite 
 {
-	currentTime += deltatime;
-	if (currentTime >= 0.25f)
+	currentTime += deltatime; // using a stopwatch 
+	if (currentTime >= 0.25f) // if the stop watch his a quater of a second 
 	{
-		UpdateSprite(myrenderer);
-		currentTime = 0;
+		UpdateSprite(myrenderer); // update the sprite 
+		currentTime = 0; // set the stopwatch back to 0
 		
 		
 	}
 }
 
 
-void Avatar::UpdateSprite(SDL_Renderer* myrenderer)
+void Avatar::UpdateSprite(SDL_Renderer* myrenderer) // use this to change the sprites image
 {
-	if (Up && open)
+	if (Up && open) // if the sprite is facing up and is open
 	{
-	changeText(myrenderer, myPosition, "closed_up_32.png");
-	closed = true;
-	open = false;
+	changeText(myrenderer, myPosition, "closed_up_32.png"); // change the sprite to be up and closed 
+	closed = true; // set closed to true
+	open = false; // set open to false
 	}
-	else if (Up && closed)
+	else if (Up && closed) // if the sprite is facing up and is closed
 	{
-	changeText(myrenderer, myPosition, "open_up_32.png");
+	changeText(myrenderer, myPosition, "open_up_32.png"); // set the sprite to the up and open sprite 
 	closed = false;
 	open = true;
 	}
@@ -142,12 +136,11 @@ void Avatar::UpdateSprite(SDL_Renderer* myrenderer)
 
 void Avatar::ChangeDir(SDL_Renderer* myrenderer) // used to change the facing direction of the player sprites
 {
-	if (Up )
+	if (Up) // if the up boolean is set in Pacman.CPP 
 	{
-		changeText(myrenderer, myPosition, "open_up_32.png");
+		changeText(myrenderer, myPosition, "open_up_32.png"); // change the sprite to face upwards
 		
 	}
-
 	 if (Left)
 	{
 		changeText(myrenderer, myPosition, "open_left_32.png");
@@ -161,24 +154,3 @@ void Avatar::ChangeDir(SDL_Renderer* myrenderer) // used to change the facing di
 		changeText(myrenderer, myPosition, "open_down_32.png");
 	}
 }
-
-
-//void Avatar::Draw(Drawer* aDrawer)
-//{
-	/*if (Up)
-	{
-		aDrawer->Draw("open_up_32.png",posRect.my + 220, (int)myPosition.myY + 60);
-	}
-	else if (Left)
-	{
-		aDrawer->Draw("open_left_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-	}
-	else if (Right)
-	{
-		aDrawer->Draw("open_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-	}
-	else if (Down)
-	{
-		aDrawer->Draw("open_down_32.png", (int)myPosition.myX + 220, (int)myPosition.myY + 60);
-	}*/
-//}

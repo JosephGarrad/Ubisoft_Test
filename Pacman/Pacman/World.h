@@ -23,33 +23,27 @@ public:
 	~World(void);
 
 	void Init(SDL_Renderer* myrenderer);
-
 	void Draw(Drawer* aDrawer);
 	bool TileIsValid(int anX, int anY);
-
 	bool HasIntersectedDot(const Vector2f& aPosition);
 	bool HasIntersectedBigDot(const Vector2f& aPosition);
 	bool HasIntersectedCherry(const Vector2f& aPosition);
-	bool win = false;
 	void Update();
-
 	void GetPath(int aFromX, int aFromY, int aToX, int aToY, std::list<PathmapTile*>& aList);
-	SDL_Texture* optimizedSurface;
+
+	SDL_Texture* optimizedSurface; // moved into here from the CPP to allow for easier control of the textures and rect in memory and for coding usage
 	SDL_Rect sizeRect;
 	SDL_Rect posRect;
 
 	PathmapTile* fromTile;
 	PathmapTile* toTile;
+
+	bool win = false; // set to true once all dots have been destroyed
 private:
 
 	PathmapTile* GetTile(int aFromX, int aFromY);
 	bool Pathfind(PathmapTile* aFromTile, PathmapTile* aToTile, std::list<PathmapTile*>& aList);
 	bool ListDoesNotContain(PathmapTile* aFromTile, std::list<PathmapTile*>& aList);
-
-	
-
-
-
 
 	bool InitPathmap(SDL_Renderer* myrenderer);
 	bool InitDots(SDL_Renderer* myrenderer);
