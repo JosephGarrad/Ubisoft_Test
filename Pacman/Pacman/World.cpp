@@ -233,7 +233,18 @@ bool World::HasIntersectedBigDot(const Vector2f& aPosition)
 
 bool World::HasIntersectedCherry(const Vector2f& aPosition)
 {
-	return true;
+	for (std::list<Cherry*>::iterator list_iter = myCherry.begin(); list_iter != myCherry.end(); list_iter++)
+	{
+		Cherry* dot = *list_iter;
+		if ((dot->GetPosition() - aPosition).Length() < 5.f)
+		{
+			myCherry.remove(dot);
+			delete dot;
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void World::GetPath(int aFromX, int aFromY, int aToX, int aToY, std::list<PathmapTile*>& aList)

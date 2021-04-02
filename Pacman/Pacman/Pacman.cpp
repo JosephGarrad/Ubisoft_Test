@@ -74,6 +74,11 @@ bool Pacman::Update(float aTime)
 	if (myWorld->HasIntersectedDot(myAvatar->GetPosition()))
 		myScore += 10;
 
+	if (myWorld->HasIntersectedCherry(myAvatar->GetPosition()))
+	{
+		myScore += 100;
+	}
+
 	myGhostGhostCounter -= aTime;
 
 	if (myWorld->HasIntersectedBigDot(myAvatar->GetPosition()))
