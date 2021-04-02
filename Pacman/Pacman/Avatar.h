@@ -2,11 +2,13 @@
 #define AVATAR_H
 
 #include "MovableGameEntity.h"
+#include "World.h"
 #include "Vector2f.h"
 #include <string>
 #include <sstream>
 #include <chrono>
 
+class World;
 
 class Avatar : public MovableGameEntity
 {
@@ -26,7 +28,7 @@ public:
 	void UpdateSprite(SDL_Renderer* myrenderer);
 	void ChangeDir(SDL_Renderer* myrenderer);
 
-	void Update(float aTime, SDL_Renderer* myrenderer);
+	void Update(float aTime, SDL_Renderer* myrenderer, World* myworld);
 
 	const char* avatar_sprite;
 	bool Up;

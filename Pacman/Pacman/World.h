@@ -5,6 +5,7 @@
 #include "Vector2f.h"
 #include "SDL.h"
 #include "SDL_image.h"
+#include "Avatar.h"
 
 struct SDL_Window;
 struct SDL_Renderer;
@@ -46,7 +47,7 @@ private:
 	bool InitPathmap(SDL_Renderer* myrenderer);
 	bool InitDots(SDL_Renderer* myrenderer);
 	bool InitBigDots(SDL_Renderer* myrenderer);
-
+	
 	std::list<PathmapTile*> myPathmapTiles;
 	std::list<Dot*> myDots;
 	std::list<BigDot*> myBigDots;

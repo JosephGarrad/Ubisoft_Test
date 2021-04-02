@@ -18,7 +18,7 @@ Avatar::~Avatar(void)
 {
 }
 
-void Avatar::Update(float aTime, SDL_Renderer* myrenderer)
+void Avatar::Update(float aTime, SDL_Renderer* myrenderer, World* myworld)
 {
 	tileSize = 22; // now declared in the .H
 	
@@ -40,7 +40,14 @@ void Avatar::Update(float aTime, SDL_Renderer* myrenderer)
 		myPosition += direction * distanceToMove;
 	}
 
-
+	if (myPosition.myX <= myworld->sizeRect.x)
+	{
+		myPosition.myX = 575;
+	}
+	if (myPosition.myX >= myworld->sizeRect.x + 575)
+	{
+		myPosition.myX = 0;
+	}
 
 	UpdateTiles(myCurrentTileX, myCurrentTileY);
 	animateSprite(aTime, myrenderer);

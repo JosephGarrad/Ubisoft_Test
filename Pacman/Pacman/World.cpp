@@ -285,9 +285,10 @@ bool World::Pathfind(PathmapTile* aFromTile, PathmapTile* aToTile, std::list<Pat
 
 		if (Pathfind(tile, aToTile, aList))
 			return true;
-
+		
 		aList.pop_back();
+	
 	}
-
+	
 	return false;
 }

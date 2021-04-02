@@ -68,7 +68,7 @@ bool Pacman::Update(float aTime)
 	}
 
 	MoveAvatar();
-	myAvatar->Update(aTime, myDrawer->returnRenderer());
+	myAvatar->Update(aTime, myDrawer->returnRenderer(),myWorld);
 	myGhost->Update(aTime, myWorld, myDrawer->returnRenderer(), myAvatar);
 	
 	if (myWorld->HasIntersectedDot(myAvatar->GetPosition()))
