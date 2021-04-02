@@ -7,6 +7,7 @@
 #include "PathmapTile.h"
 #include "Dot.h"
 #include "BigDot.h"
+#include "Cherry.h"
 #include "Drawer.h"
 
 World::World(void)
@@ -46,6 +47,7 @@ void World::Init(SDL_Renderer* myrenderer)
 	InitPathmap(myrenderer);
 	InitDots(myrenderer);
 	InitBigDots(myrenderer);
+	InitCherry(myrenderer);
 }
 
 bool World::InitPathmap(SDL_Renderer* myrenderer)
@@ -100,6 +102,34 @@ bool World::InitDots(SDL_Renderer* myrenderer)
 
 	return true;
 }
+bool World::InitCherry(SDL_Renderer* myrenderer)
+{
+	std::string line;
+	std::ifstream myfile("map.txt");
+	if (myfile.is_open())
+	{
+		int lineIndex = 0;
+		while (!myfile.eof())
+		{
+			std::getline(myfile, line);
+			for (unsigned int i = 0; i < line.length(); i++)
+			{
+				if (line[i] == '~')
+				{
+					Cherry* dot = new Cherry(myrenderer, Vector2f(i * 22, lineIndex * 22));
+					myCherry.push_back(dot);
+
+				}
+			}
+
+			lineIndex++;
+		}
+		myfile.close();
+
+	}
+
+	return true;
+}
 
 bool World::InitBigDots(SDL_Renderer* myrenderer)
 {
@@ -143,6 +173,11 @@ void World::Draw(Drawer* aDrawer)
 	for(std::list<BigDot*>::iterator list_iter = myBigDots.begin(); list_iter != myBigDots.end(); list_iter++)
 	{
 		BigDot* dot = *list_iter;
+		dot->Draw(aDrawer);
+	}
+	for (std::list<Cherry*>::iterator list_iter = myCherry.begin(); list_iter != myCherry.end(); list_iter++)
+	{
+		Cherry* dot = *list_iter;
 		dot->Draw(aDrawer);
 	}
 }

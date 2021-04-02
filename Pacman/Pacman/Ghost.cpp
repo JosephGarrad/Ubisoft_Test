@@ -22,7 +22,8 @@ Ghost::~Ghost(void)
 void Ghost::Die(World* aWorld)
 {
 	myPath.clear();
-	//aWorld->GetPath(myCurrentTileX, myCurrentTileY, 13, 13, myPath);
+	aWorld->GetPath(myCurrentTileX, myCurrentTileY, 13, 13, myPath);
+
 }
 
 void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar* myavatar)
@@ -97,8 +98,8 @@ void Ghost::Update(float aTime, World* aWorld, SDL_Renderer* myrenderer, Avatar*
 	
 	
 	GhostStates(myrenderer);
-
 	
+	aWorld->GetPath(myCurrentTileX, myCurrentTileY, myavatar->GetCurrentTileX(), myavatar->GetCurrentTileY(), myPath);
 	moveSprite(myPosition.myX + 220, myPosition.myY + 60);
 	
 	}
@@ -115,13 +116,13 @@ void Ghost::MakePath(World* aWorld, Avatar* myavatar)
 
 void Ghost::GhostStates(SDL_Renderer* myrenderer) // used to chnage the srpties of the ghost when there states change
 {
-	if (myIsClaimableFlag)
-	{
-		changeText(myrenderer, myPosition, "Ghost_Vulnerable_32.png");
-	}
-	else if (myIsDeadFlag)
+	if (myIsDeadFlag)
 	{
 		changeText(myrenderer, myPosition, "Ghost_Dead_32.png");
+	}
+	else if (myIsClaimableFlag)
+	{
+		changeText(myrenderer, myPosition, "Ghost_Vulnerable_32.png");
 	}
 	else
 	{

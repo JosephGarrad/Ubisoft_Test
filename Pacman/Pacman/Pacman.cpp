@@ -125,6 +125,7 @@ bool Pacman::UpdateInput()
 		myAvatar->Down = false;
 		myAvatar->Right = false;
 		myAvatar->Left = false;
+		
 	}
 
 	else if (keystate[SDL_SCANCODE_DOWN])
@@ -172,6 +173,7 @@ void Pacman::MoveAvatar()
 		if (myWorld->TileIsValid(nextTileX, nextTileY))
 		{
 			myAvatar->SetNextTile(nextTileX, nextTileY);
+			
 		}
 	}
 	

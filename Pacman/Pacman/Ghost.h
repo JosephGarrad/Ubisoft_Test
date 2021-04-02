@@ -4,7 +4,7 @@
 #include <list>
 #include "MovableGameEntity.h"
 #include "Avatar.h";
-
+class Avatar;
 class World;
 class PathmapTile;
 

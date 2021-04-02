@@ -46,6 +46,7 @@ private:
 
 	bool InitPathmap(SDL_Renderer* myrenderer);
 	bool InitDots(SDL_Renderer* myrenderer);
+	bool InitCherry(SDL_Renderer* myrenderer);
 	bool InitBigDots(SDL_Renderer* myrenderer);
 	
 	std::list<PathmapTile*> myPathmapTiles;
